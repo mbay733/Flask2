@@ -1,5 +1,5 @@
 class Config:
-    PORT = True
+    TESTING = True
 
 
 class ProductionConfig(Config):
@@ -9,6 +9,6 @@ class ProductionConfig(Config):
 
 class DevelopmentConfig(Config):
     DEBUG = True
+    SERVER_NAME = "0.0.0.0:5555"
     PORT = 3333
-
 
