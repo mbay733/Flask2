@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello</title>
-</head>
-<body>
-    <i>Start Peoples project</i>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %} Hello {% endblock  %}
+
+{% block content %}
+    <i>Контент главной страницы!</i>
+{% endblock  %}
