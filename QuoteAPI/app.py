@@ -1,9 +1,9 @@
 from typing import Any
 from flask import Flask, jsonify, request, abort
 from http import HTTPStatus
-from pathlib import Path
+# from pathlib import Path
 from werkzeug.exceptions import HTTPException
-# imports for sqlalchemy
+# ## imports for sqlalchemy
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
 from sqlalchemy import String, func, ForeignKey
@@ -15,12 +15,12 @@ class Base(DeclarativeBase):
     pass
 
 
-BASE_DIR = Path(__file__).parent
+# BASE_DIR = Path(__file__).parent
 
 app = Flask(__name__)
-app.config['JSON_AS_ASCII'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{BASE_DIR / 'quotes.db'}"
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# app.config['JSON_AS_ASCII'] = False
+# app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{BASE_DIR / 'quotes.db'}"
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(model_class=Base)
 db.init_app(app)
