@@ -1,8 +1,7 @@
 from api import db
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import String, ForeignKey
-from api.models.author import AuthorModel
-
+from api.models.author import AuthorModel  # type: ignore
 
 
 class QuoteModel(db.Model):
@@ -14,9 +13,9 @@ class QuoteModel(db.Model):
     text: Mapped[str] = mapped_column(String(255))
     rating: Mapped[int] = mapped_column(server_default='1')
 
-    def __init__(self, author, text, rating):
+    def __init__(self, author: AuthorModel, text, rating):
         self.author_id = author.id
-        self.text  = text
+        self.text = text
         self.rating = rating
 
 
@@ -28,5 +27,5 @@ class QuoteModel(db.Model):
             "rating": self.rating
         }
     
-    def _repr__(self) -> str:
+    def __repr__(self) -> str:
         return f'Quote({self.text})'

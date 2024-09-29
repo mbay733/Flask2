@@ -9,4 +9,4 @@ class Config:
     SQLALCHEMY_DATABASE_URI = f"sqlite:///{BASE_DIR / 'quotes.db'}"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     # Для вывода содержимого SQL запросов
-    SQLALCHEMY_ECHO = True
+    # SQLALCHEMY_ECHO = True

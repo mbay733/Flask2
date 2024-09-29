@@ -3,7 +3,7 @@ from api.models.quote import QuoteModel
 from api.models.author import AuthorModel
 from typing import Any
 from flask import jsonify, abort, request
-
+from . import validate
 
 
 # URL: /quotes
@@ -15,6 +15,7 @@ def get_quotes() -> list[dict[str, Any]]:
     for quote in quotes_db:
         quotes.append(quote.to_dict())
     return jsonify(quotes), 200
+
 
 # URL: /authors/1/quotes
 @app.route("/authors/<int:author_id>/quotes")
