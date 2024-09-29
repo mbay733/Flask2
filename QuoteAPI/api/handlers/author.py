@@ -3,9 +3,13 @@ from api.models.author import AuthorModel # type: ignore
 from flask import abort, jsonify, request
 
 
-@app.route("/authors", methods=['GET'])
+@app.get("/authors")
 def get_authors():
-    raise NotImplemented("Метод не реализован")
+    authors_db = db.session.scalars(db.select(AuthorModel)).all()
+    authors = []
+    for author in authors_db:
+        authors.append(author.to_dict())
+    return jsonify(authors), 200
 
 
 @app.route("/authors", methods=['POST'])
