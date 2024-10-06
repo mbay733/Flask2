@@ -64,4 +64,4 @@ def delete_author(author_id: int):
     except Exception as e:
         db.session.rollback()
         abort(503, f"Database error: {str(e)}")    
-    return f"Author with id {author_id} deleted"
+    return jsonify(message=f"Author with id={author_id} deleted"), 200
