@@ -21,6 +21,7 @@ MarkupSafe==2.1.5
 marshmallow==3.22.0
 marshmallow-sqlalchemy==1.1.0
 packaging==24.1
+passlib==1.7.4
 Pygments==2.18.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.1
