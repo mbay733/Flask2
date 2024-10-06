@@ -5,6 +5,7 @@ from api.models.author import AuthorModel
 class AuthorSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
         model = AuthorModel
+        dump_only = ("id",)
 
 
 author_schema = AuthorSchema()
