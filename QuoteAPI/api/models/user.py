@@ -8,7 +8,7 @@ class UserModel(db.Model):
     __tablename__ = "users"
     
     id: so.Mapped[int] = so.mapped_column(primary_key=True)
-    name: so.Mapped[str] = so.mapped_column(sa.String(32), index=True, unique=True)
+    username: so.Mapped[str] = so.mapped_column(sa.String(32), index=True, unique=True)
     password_hash: so.Mapped[str] = so.mapped_column(sa.String(128))
 
     def __init__(self, username, password):
