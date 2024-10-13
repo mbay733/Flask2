@@ -1,5 +1,5 @@
 from http import HTTPStatus
-from api import app, db
+from api import app, db, auth
 from api.models.author import AuthorModel # type: ignore
 from flask import abort, jsonify, request
 from api.schemas.author import author_schema, authors_schema
@@ -13,6 +13,7 @@ def get_authors():
 
 
 @app.route('/authors', methods=['POST'])
+@auth.login_required
 def create_author():
     try:
         # author_data = request.json # get_json()
@@ -36,6 +37,7 @@ def get_author_by_id(author_id: int):
 
 
 @app.route("/authors/<int:author_id>", methods=["PUT"])
+@auth.login_required
 def edit_author(author_id):
     author: AuthorModel = db.get_or_404(AuthorModel, author_id)
 
